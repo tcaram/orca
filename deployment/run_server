@@ -2,6 +2,13 @@
 
 fc-cache -v /usr/share/fonts/user
 
+# Install certs:
+if [[ -n "${PLOTLY_INSTALL_CERTS}" ]]; then
+  echo Installing CA certificates
+  cp /etc/plotly_ssl/*.pem /etc/ssl/certs/
+  update-ca-certificates
+fi
+
 BUILD_DIR=/var/www/image-exporter/build
 if [[ -n "${PLOTLY_JS_SRC}" ]]; then
   # Fetch plotly js bundle and save it locally:
