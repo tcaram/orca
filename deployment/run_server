@@ -5,7 +5,8 @@ fc-cache -v /usr/share/fonts/user
 # Install certs:
 if [[ -n "${PLOTLY_INSTALL_CERTS}" ]]; then
   echo Installing CA certificates
-  cp /etc/plotly_ssl/*.pem /etc/ssl/certs/
+  cp /etc/plotly_ssl/dash_ssl_cert_and_key.pem /etc/ssl/certs/
+  cp /etc/plotly_ssl/base_ssl_cert_and_key.pem /etc/ssl/certs/
   update-ca-certificates
 fi
 
